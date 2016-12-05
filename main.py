@@ -2,16 +2,16 @@ import urllib
 from bs4 import BeautifulSoup
 from operator import itemgetter
 
-r = urllib.urlopen('http://website/projects')
+r = urllib.urlopen('http://website/projects')       #change here
 soup = BeautifulSoup(r,"lxml")
 
-btns = soup.find_all("a", class_="btn-default")
+btns = soup.find_all("a", class_="btn-default")     #change here
 links = []
 
 for element in btns:
     links.append(element["href"])
 
-prefix = "http://website"
+prefix = "http://website"                           #change here
 links = [prefix + link for link in links]
 soups = {}
 for link in links:
@@ -21,7 +21,7 @@ for link in links:
 
 top = {}
 for k in soups:
-    span = soups[k].find_all("span", class_="badge")
+    span = soups[k].find_all("span", class_="badge") #change here
     top[k] = int(span[0].text)
 
 good_top = {}
